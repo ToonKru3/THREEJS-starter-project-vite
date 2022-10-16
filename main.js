@@ -1,15 +1,16 @@
 import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import Stats from 'three/examples/jsm/libs/stats.module'
 import { Pane } from 'tweakpane'
 
 
 
 
-let renderer , canvasWebGl , scene , camera , control;
+let renderer , scene , camera , control;
 let box , material , mesh;
 
-
+const canvasWebGl = document.querySelector('canvas.webgl');
 
 const sizes = {
   width: window.innerWidth,
@@ -20,11 +21,12 @@ const params = {
   data: 'test'
 }
 
+const stats = new Stats()
+document.body.appendChild(stats.dom)
+
+
+
 // Tweakpane for devolpment
-
-
-
-
 // localhost:5173/#   Open tweakpane 
 if(window.location.href.includes('#'))
 {
@@ -37,7 +39,7 @@ if(window.location.href.includes('#'))
 
 function init()
 {
-  canvasWebGl = document.querySelector('canvas.webgl');
+  
   scene = new THREE.Scene()
 
   renderer = new THREE.WebGLRenderer({
@@ -71,20 +73,30 @@ function init()
 
 
   box = new THREE.BoxGeometry(1,1,1)
-  material =new THREE.MeshBasicMaterial({color: 'yellow'})
+  material =new THREE.MeshBasicMaterial({color: 'red'})
   mesh = new THREE.Mesh(box, material)
   scene.add(mesh)
 }
 init()
 
+
+const clock = new THREE.Clock()
+let delta;
 function animate()
 {
   requestAnimationFrame(animate)
-
-
-  // mesh.position.x += 0.1
+  delta = clock.getDelta()
   
-  // stats.update()
+  // setInterval( () => 
+  // {
+  //   mesh.material.color = new THREE.Color(0xff1111 * Math.random() + 2)
+  // }, 5000)
+
+  // mesh.position.y = Math.sin(0.1)
+  // mesh.rotation.y += 0.001
+
+  
+  stats.update()
   control.update()
   renderer.render( scene, camera );
 }
