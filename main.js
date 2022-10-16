@@ -7,6 +7,8 @@ import { Pane } from 'tweakpane'
 
 
 let renderer , canvasWebGl , scene , camera , control;
+let box , material , mesh;
+
 
 
 const sizes = {
@@ -68,23 +70,20 @@ function init()
 
 
 
-  const box = new THREE.BoxGeometry(1,1,1)
-  const material =new THREE.MeshBasicMaterial({color: 'red'})
-  const mesh = new THREE.Mesh(box, material)
+  box = new THREE.BoxGeometry(1,1,1)
+  material =new THREE.MeshBasicMaterial({color: 'yellow'})
+  mesh = new THREE.Mesh(box, material)
   scene.add(mesh)
-
-
-
 }
 init()
-
-
 
 function animate()
 {
   requestAnimationFrame(animate)
 
 
+  // mesh.position.x += 0.1
+  
   // stats.update()
   control.update()
   renderer.render( scene, camera );
