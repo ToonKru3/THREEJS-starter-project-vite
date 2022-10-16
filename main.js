@@ -1,13 +1,37 @@
 import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { Pane } from 'tweakpane'
+
+
+
 
 let renderer , canvasWebGl , scene , camera , control;
+
 
 const sizes = {
   width: window.innerWidth,
   height: window.innerHeight
 }
+
+const params = {
+  data: 'test'
+}
+
+// Tweakpane for devolpment
+
+
+
+
+// localhost:5173/#   Open tweakpane 
+if(window.location.href.includes('#'))
+{
+  const pane = new Pane()
+  pane.addInput(params, 'data')
+}
+
+
+
 
 function init()
 {
