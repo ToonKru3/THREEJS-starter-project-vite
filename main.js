@@ -1,23 +1,59 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+import * as THREE from 'three';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the asdasd logo to learn more
-    </p>
-  </div>
-`
+let renderer , canvasWebGl , scene , camera;
 
-setupCounter(document.querySelector('#counter'))
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight
+}
+
+function init()
+{
+  canvasWebGl = document.querySelector('canvas.webgl');
+  scene = new THREE.Scene()
+
+
+  renderer = new THREE.WebGLRenderer({
+    canvas: canvasWebGl,
+    antialias: true
+  })
+  renderer.setSize(sizes.width, sizes.height)
+
+
+  camera = new THREE.PerspectiveCamera(45 , sizes.width / sizes.height , 0.1 , 3000 )
+  camera.position.z = 3
+  scene.add(camera)
+
+  const box = new THREE.BoxGeometry(1,1,1)
+  const material =new THREE.MeshBasicMaterial({color: 'red'})
+  const mesh = new THREE.Mesh(box, material)
+  scene.add(mesh)
+
+
+
+}
+
+init()
+
+
+
+function animate()
+{
+  requestAnimationFrame(animate)
+
+
+  // controls.update()
+  // stats.update()
+  renderer.render( scene, camera );
+}
+
+
+
+animate()
+
+
+
+
+
+
