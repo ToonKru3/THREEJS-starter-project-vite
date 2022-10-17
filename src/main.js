@@ -80,30 +80,52 @@ function init()
 init()
 
 
-const clock = new THREE.Clock()
+
 let delta;
+let fpsInterval, now, then , elapsed, startTime;
+const clock = new THREE.Clock()
+function LockFrame(fps)
+{
+
+  fpsInterval = 1000 / fps
+  then = window.performance.now()
+  startTime = then
+  animate()
+}
+LockFrame(60)
+
+
+
 function animate()
 {
   requestAnimationFrame(animate)
-  delta = clock.getDelta()
-  
-  // setInterval( () => 
-  // {
-  //   mesh.material.color = new THREE.Color(0xff1111 * Math.random() + 2)
-  // }, 5000)
+  now  = window.performance.now()
+  elapsed = now - then
 
-  // mesh.position.y = Math.sin(0.1)
-  // mesh.rotation.y += 0.001
+  if(elapsed >= fpsInterval)
+  {
+    then = now - (elapsed % fpsInterval)
+    const delta = clock.getDelta();
+    // setInterval( () => 
+    // {
+    //   mesh.material.color = new THREE.Color(0xff1111 * Math.random() + 2)
+    // }, 5000)
 
-  
-  stats.update()
-  control.update()
-  renderer.render( scene, camera );
+    // mesh.position.y = Math.sin(0.1)
+    // mesh.rotation.y += 0.001
+
+    // if()
+
+
+    stats.update()
+    control.update()
+    renderer.render( scene, camera );
+  }
 }
 
 
 
-animate()
+
 
 
 
