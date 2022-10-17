@@ -5,8 +5,6 @@ import Stats from 'three/examples/jsm/libs/stats.module'
 import { Pane } from 'tweakpane'
 
 
-
-
 let renderer , scene , camera , control;
 let box , material , mesh;
 
