@@ -18,9 +18,6 @@ npm run dev   // to open your local host server
 #### 2. Create file `vite.config.js` and then save and run `npm run dev` it again reason it's because of [SubSystem for Linux (WSL2) Limitation](https://vitejs.dev/config/server-options.html#server-watch)
 ```javascript
 import { defineConfig } from 'vite'
-import path from 'path'
-
-// const dirname = path.resolve()
 
 export default defineConfig({
     root: './src',
