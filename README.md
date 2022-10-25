@@ -1,15 +1,14 @@
 # THREEJS-starter-project-vite
  
-**Threejs + Vite Vanilla** js for starter pack who don't want to worry about how to setup things module and install plugin 
-- Support : **WSL2 Linux Subsystem** , **Windows OS** , **Mac**
+**Threejs + Vite Vanilla js** for starter pack who don't want to worry about how to setup things module and install plugin 
 ### First Install Package
-```nodejs
-npm install   // to install all package
+```javascript
+npm install   // Install all package
 ```
 
 ### Second Start Development
-```nodejs
-npm run dev   // to open your local host server
+```javascript
+npm run dev   // Open your local host server
 ```
 
 ### For WSL2 Ubuntu HotLoad Problems 2 ways to fix
@@ -35,3 +34,12 @@ export default defineConfig({
     }
 })
 ```
+### Support 
+1. WSL2 Linux Subsystem
+2. Windows OS
+3. Mac
+
+### Plugins
+1. [Tweakpane](https://cocopon.github.io/tweakpane/)
+2. [vite-plugin-glsl](https://www.npmjs.com/package/vite-plugin-glsl)
+
