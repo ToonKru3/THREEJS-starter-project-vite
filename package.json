@@ -12,6 +12,7 @@
     "vite": "^3.1.0"
   },
   "dependencies": {
+    "gsap": "^3.11.3",
     "three": "^0.145.0",
     "tweakpane": "^3.1.0",
     "vite-plugin-glsl": "^0.5.3"
