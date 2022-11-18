@@ -45,4 +45,4 @@ export default defineConfig({
 3. [Gsap](https://greensock.com/)
 
 
-Assets adding it to './public'
+ALL Assets public folder
