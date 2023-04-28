@@ -1,3 +1,5 @@
+console.log('%cCreated By: Supadett Pinsuwannabut', 'background-color:red ;color: white; font-size: 30px; font-weight: bold');
+console.log('https://github.com/ToonKru3');
 import '/style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
