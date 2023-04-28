@@ -43,3 +43,6 @@ export default defineConfig({
 1. [Tweakpane](https://cocopon.github.io/tweakpane/)
 2. [vite-plugin-glsl](https://www.npmjs.com/package/vite-plugin-glsl)
 3. [Gsap](https://greensock.com/)
+
+
+ALL Assets public folder
